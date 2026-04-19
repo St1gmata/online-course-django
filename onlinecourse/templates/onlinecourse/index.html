@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Courses</title>
+</head>
+<body>
+    <h1>Online Course App</h1>
+
+    {% for course in course_list %}
+        <div>
+            <h2><a href="{% url 'onlinecourse:course_details' course.id %}">{{ course.name }}</a></h2>
+            <p>{{ course.description }}</p>
+            <p>Total enrollments: {{ course.total_enrollment }}</p>
+        </div>
+        <hr>
+    {% empty %}
+        <p>No courses found.</p>
+    {% endfor %}
+</body>
+</html>
